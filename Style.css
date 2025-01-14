@@ -907,11 +907,14 @@ footer .Credit a {
     overflow: auto;
     top: 100%;
     right: -21rem;
-    background-color: var(--w1ed);
+    background-color: var(--w6);
     width: 20rem;
     height: 100vh;
     box-shadow: -0.25rem 0.25rem 0.5rem var(--w7);
     transition: 0.5s;
+  }
+  .NavMenuCalc {
+    background-color: var(--w1ed);
   }
   .NavBar .NavBar-Nav.active,
   .NavMenuCalc.active {
