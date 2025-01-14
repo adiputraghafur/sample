@@ -1,0 +1,965 @@
+:root {
+  --w1: #21c267;
+  --w2: #c42c21;
+  --w3: #8121c2;
+  --w4: #c28721;
+  --w5: #3bc221;
+  --w6: #fffef1;
+  --w7: #101010;
+  --w1eb: #7ec49c;
+  --w2eb: #c4837e;
+  --w3eb: #a87ec4;
+  --w4eb: #c4ab7e;
+  --w5eb: #89c47e;
+  --w1ed: #335c45;
+  --w2ed: #5c3733;
+  --w3ed: #4c335c;
+  --w4ed: #5c4d33;
+  --w5ed: #3a5c33;
+  --w1pb: #c5edd6;
+  --w2pb: #edc8c5;
+  --w3pb: #ddc5ed;
+  --w4pb: #eddfc5;
+  --w5pb: #cbedc5;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Josefin Sans", sans-serif;
+  background-color: var(--w6);
+  color: var(--w7);
+}
+/* NavBar */
+.NavBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.9rem 7%;
+  background-color: var(--w1ed);
+  box-shadow: 0 0.25rem 0.5rem var(--w7);
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 9999;
+}
+.NavBar .Logo {
+  font-size: 2rem;
+  color: var(--w4pb);
+}
+.NavBar .NavBar-Nav a,
+footer .Links a {
+  color: var(--w4pb);
+  display: inline-block;
+  font-size: 1.1rem;
+  margin: 0 0.8rem;
+  transition: 0.3s linear;
+}
+.NavBar .NavBar-Nav a:hover {
+  color: var(--w4ed);
+}
+.NavBar .NavBar-Nav a::after {
+  content: "";
+  display: block;
+  padding-bottom: 0.5;
+  border-bottom: 0.1rem solid var(--w4pb);
+  transform: scaleX(0);
+  transition: 0.3s linear;
+}
+.NavBar .NavBar-Nav a:hover::after {
+  border-bottom: 0.1rem solid var(--w4ed);
+  transform: scaleX(0.3);
+}
+.NavBar .NavBar-Extra a {
+  color: var(--w4pb);
+  margin: 0 0.2rem;
+}
+.NavBar .NavBar-Extra a:hover {
+  color: var(--w4ed);
+}
+#NavSideMenu {
+  display: none;
+}
+.NavBar .NavMenu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  background-color: var(--w4pb);
+  width: max-content;
+  max-height: 75vh;
+  justify-items: left;
+  overflow: auto;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: 0.3s;
+}
+.NavBar .NavMenu.active {
+  transform: scaleY(1);
+}
+.NavBar .NavMenu a {
+  font-size: 1rem;
+  color: var(--w1ed);
+  display: block;
+  text-align: center;
+  margin: 0.5rem 0.75rem;
+}
+.NavBar .NavMenu a:hover {
+  color: var(--w1eb);
+}
+/* HomePage */
+/* Main */
+.MainMenu {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#Home {
+  mask-image: linear-gradient(rgba(0, 0, 0, 1) 90%, rgba(0, 0, 0, 0));
+}
+.MainSlide {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+.MainSlide .ItemSlide {
+  position: absolute;
+  inset: 0 0 0 0;
+}
+.MainSlide .ItemSlide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.MainSlide .ItemContent {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 75vw;
+}
+h1 {
+  font-size: 5rem;
+  text-align: center;
+  color: var(--w6);
+  text-shadow: 4px 2px var(--w5ed);
+  line-height: 1.2;
+  -webkit-text-stroke: 1px;
+  -webkit-text-stroke-color: var(--w7);
+}
+#IS2 h1 {
+  font-size: 4rem;
+}
+.MainMenu .MainContent p {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-top: 1rem;
+  text-align: center;
+  color: var(--w6);
+  text-shadow: 2px 1px var(--w5ed);
+  line-height: 1.2;
+  -webkit-text-stroke: 1px;
+  -webkit-text-stroke-color: var(--w7);
+}
+.MainSlide .ItemSlide:nth-child(1) {
+  z-index: 1;
+}
+.MainSlide .ItemSlide:nth-child(1) h1,
+.MainSlide .ItemSlide:nth-child(1) p {
+  transform: translatey(4rem);
+  filter: blur(4rem);
+  opacity: 0;
+  animation: showslide 1s 0.2s linear 1 forwards;
+}
+.MainSlide .ItemSlide:nth-child(1) p {
+  animation-delay: 0.7s;
+}
+@keyframes showslide {
+  to {
+    transform: translatey(0);
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+.MainContent.Next .ItemSlide:nth-child(1) > img {
+  width: 8rem;
+  height: 4.5rem;
+  position: absolute;
+  bottom: 15%;
+  left: 50%;
+  filter: blur(4rem);
+  opacity: 0;
+  transform: translateX(-50%);
+  animation: showimg 0.75s ease 1 forwards;
+}
+@keyframes showimg {
+  to {
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    left: 0;
+    filter: blur(0);
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.MainContent.Prev .ItemSlide:nth-child(2) h1,
+.MainContent.Prev .ItemSlide:nth-child(2) p {
+  animation: hideslide 0.75s 0.1s linear 1 forwards;
+}
+@keyframes hideslide {
+  to {
+    transform: translatey(4rem);
+    filter: blur(4rem);
+    opacity: 0;
+  }
+}
+.MainContent.Prev .ItemSlide:nth-child(2) {
+  z-index: 2;
+}
+.MainContent.Prev .ItemSlide:nth-child(2) > img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: translateX(0);
+  filter: blur(0);
+  opacity: 1;
+  animation: shrinkimg 0.75s ease 1 forwards;
+}
+@keyframes shrinkimg {
+  to {
+    width: 8rem;
+    height: 4.5rem;
+    bottom: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    filter: blur(1);
+    opacity: 0;
+  }
+}
+.MainPreview {
+  position: absolute;
+  bottom: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  z-index: 999;
+  display: flex;
+  gap: 1rem;
+}
+.MainPreview .MPItem {
+  width: 8rem;
+  height: 4.5rem;
+  flex-shrink: 0;
+  position: relative;
+}
+.MPItem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  box-shadow: 1px 1px 4px var(--w7);
+}
+.MainContent.Next .MPItem:nth-last-child(1) {
+  width: 0;
+  overflow: hidden;
+  opacity: 0;
+  animation: showpreview 0.75s linear 1 forwards;
+}
+.MainContent.Prev .MPItem:nth-child(1) {
+  width: 0;
+  overflow: hidden;
+  opacity: 0;
+  animation: showpreview 0.75s linear 1 forwards;
+}
+@keyframes showpreview {
+  to {
+    width: 8rem;
+    opacity: 1;
+  }
+}
+.SlideButton {
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1rem;
+  color: var(--w7);
+  background-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 1px 1px 4px var(--w7);
+  z-index: 99;
+}
+.SlideButton:hover {
+  background-color: rgba(255, 255, 255, 0.75);
+}
+#SBPrev {
+  top: 50%;
+  left: 5%;
+}
+#SBNext {
+  top: 50%;
+  right: 5%;
+}
+.MainContent.Next .SlideButton,
+.MainContent.Prev .SlideButton {
+  pointer-events: none;
+}
+.LoadingSlide {
+  width: 0;
+  height: 0.125rem;
+  position: absolute;
+  background-color: var(--w2);
+  z-index: 999;
+  top: 4rem;
+  left: 0;
+}
+.MainContent.Next .LoadingSlide,
+.MainContent.Prev .LoadingSlide {
+  width: 100%;
+  animation: loadingslide 2s linear 1 forwards;
+}
+@keyframes loadingslide {
+  to {
+    width: 0;
+  }
+}
+/* About */
+.About,
+.Menu,
+.Peoples,
+.Contact {
+  min-height: 100vh;
+  padding: 4rem 2rem 1.4rem;
+}
+h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  color: var(--w1ed);
+  margin: 2rem 0 3rem;
+}
+.Row {
+  display: flex;
+}
+.About .Row .Img {
+  flex: 1 1 45rem;
+}
+.About .Row .Img img {
+  width: 100%;
+  min-height: 22rem;
+  object-fit: cover;
+  object-position: bottom;
+}
+.About .Row .Content {
+  flex: 1 1 35rem;
+  padding: 0 1rem;
+}
+.About .Row .Content p {
+  font-size: 1rem;
+  text-align: justify;
+  color: var(--w1ed);
+  margin-bottom: 0.8;
+  line-height: 1.6;
+}
+/* Menu */
+.Menu {
+  background-color: var(--w5ed);
+}
+.Menu h2 {
+  color: var(--w6);
+}
+.Menu .Row {
+  flex-wrap: wrap;
+  margin-top: 5rem;
+  justify-content: center;
+  align-items: center;
+}
+.Menu .Row a {
+  padding: 1rem 3rem;
+  font-size: 1.4rem;
+  color: var(--w6);
+  background-color: var(--w2);
+  width: 20rem;
+  height: 5rem;
+  border-radius: 0.5rem;
+  margin: 0.4rem 0.4rem 0.5rem;
+  text-align: center;
+  align-content: center;
+  transition: 0.3s;
+}
+.Menu .Row a:hover {
+  color: var(--w2);
+  background-color: var(--w6);
+}
+/* Peoples */
+.Peoples h2 {
+  margin-bottom: 1.5rem;
+  color: var(--w2ed);
+}
+.Peoples p {
+  max-width: 30rem;
+  text-align: center;
+  margin: auto;
+  color: var(--w2ed);
+}
+.PeopleBody {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  padding: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+.People {
+  text-align: center;
+  margin: 0.5rem;
+  width: 12rem;
+  height: 18rem;
+  perspective: 1000px;
+}
+.PeopleCard {
+  width: 100%;
+  height: 100%;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+.PeopleCard:hover {
+  transform: rotateY(180deg);
+}
+.PCard {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  align-content: center;
+  padding: 0.25rem;
+  border-radius: 1rem;
+  backface-visibility: hidden;
+}
+.PCard.Front {
+  background-color: var(--w6);
+  box-shadow: 1px 1px 4px var(--w7);
+}
+.PCard.Back {
+  background-color: var(--w4pb);
+  box-shadow: 1px 1px 4px var(--w7);
+  transform: rotateY(180deg);
+}
+h4 {
+  margin: 0.5rem;
+  font-size: 1.1rem;
+  color: var(--w2ed);
+}
+.People img {
+  width: 8rem;
+  height: 10rem;
+  object-fit: cover;
+  border-radius: 3.5rem;
+}
+.People p {
+  font-size: 0.875rem;
+  max-width: 10rem;
+  margin: 0.5rem;
+  color: var(--w2ed);
+}
+/* Contact */
+.Contact {
+  background-color: var(--w4);
+}
+.Contact h2 {
+  color: var(--w6);
+}
+.Contact .Row {
+  margin-top: 2rem;
+  background-color: var(--w3);
+  align-items: center;
+}
+.Contact .Row .Map {
+  flex: 1 1 45rem;
+  width: 100%;
+  object-fit: cover;
+  min-height: 24rem;
+}
+.Contact .Row .SNSCont {
+  flex: 1 1 35rem;
+  padding: 2rem 1rem;
+  text-align: center;
+  justify-items: center;
+}
+.Contact .Row .SNSCont h3 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: var(--w6);
+}
+.Contact .Row .SNSCont .Block {
+  align-items: center;
+  border: 1px solid var(--w6);
+  border-radius: 0.5rem;
+  padding: 2rem 0.5rem;
+}
+.Contact .Row .SNSCont .Block .SNS {
+  margin: 0.5rem;
+}
+.Contact .Row .SNSCont .Block .SNS a {
+  font-size: 1.4rem;
+  color: var(--w6);
+  transition: 0.3s;
+}
+.Contact .Row .SNSCont .Block .SNS a:hover {
+  font-size: 1.5rem;
+  color: var(--w1ed);
+}
+.Contact .Row .SNSCont .Block .SNS .Icons {
+  height: 1.2rem;
+}
+/* Footer */
+footer {
+  background-color: var(--w1ed);
+  text-align: center;
+  padding: 1rem 0 1.2rem;
+}
+footer .SNS {
+  padding: 1rem;
+}
+footer .SNS a {
+  color: var(--w4pb);
+  transition: 0.3s;
+}
+footer .SNS a:hover,
+footer .Links a:hover {
+  color: var(--w3ed);
+}
+footer .SNS .Icons {
+  height: 1.4rem;
+  transition: 0.3s;
+}
+footer .SNS .Icons:hover {
+  height: 2rem;
+}
+footer .Links {
+  margin-bottom: 1rem;
+}
+footer .Credit p,
+footer .Credit a {
+  font-size: 0.75rem;
+  color: var(--w4pb);
+  margin: 2rem 0 0;
+}
+/* Calculator */
+#NavBarCalc,
+#FooterCalc {
+  background-color: var(--w2);
+}
+#NavBar-NavCalc a,
+#FooterCalc a {
+  color: var(--w6);
+}
+#NavBar-NavCalc a:hover,
+#FooterCalc a:hover {
+  color: var(--w1ed);
+}
+#NavBar-NavCalc a:hover::after,
+#FooterCalc a:hover::after {
+  border-bottom: 0.1rem solid var(--w1ed);
+}
+.NavMenuCalc {
+  position: absolute;
+  overflow: auto;
+  top: 100%;
+  right: 0;
+  background-color: var(--w1ed);
+  width: 10rem;
+  height: 100vh;
+  box-shadow: -0.25rem 0.25rem 0.5rem var(--w7);
+}
+.NavMenuCalc a {
+  color: var(--w6);
+  display: block;
+  overflow: auto;
+  margin: 0.5rem;
+  padding: 0.25rem;
+  font-size: 1rem;
+}
+.NavMenuCalc a::after {
+  content: "";
+  display: block;
+  padding-bottom: 0.5;
+  border-bottom: 0.1rem solid var(--w2pb);
+  transform-origin: 0 0;
+  transform: scaleX(0);
+  transition: 0.3s linear;
+}
+.NavMenuCalc a:hover::after {
+  border-bottom: 0.1rem solid var(--w2);
+  transform: scaleX(0.2);
+}
+#Calculator {
+  height: 100vh;
+  display: block;
+  overflow: hidden;
+  padding-right: 10rem;
+}
+/* Simple Calculator */
+.Calc {
+  padding: 3rem 0.5rem 0.5rem;
+  background-color: var(--w6);
+  display: block;
+  align-content: center;
+  justify-items: center;
+  height: 100vh;
+}
+.Calc h1 {
+  font-size: 4rem;
+}
+#SimCalc.dark {
+  background-color: var(--w7);
+}
+#SimCalc.dark h1 {
+  color: var(--w7);
+  text-shadow: 0.5rem 0.5rem 1.2rem var(--w6);
+  -webkit-text-stroke-color: var(--w6);
+}
+.SimCalcBody {
+  position: relative;
+  align-items: center;
+  justify-items: center;
+  width: 100%;
+  max-width: 20rem;
+  min-height: 25rem;
+  padding: 1rem;
+  background-color: var(--w6);
+  border-radius: 1rem;
+  box-shadow: 0.5rem 0.5rem 1.2rem var(--w7);
+  transition: 0.5s;
+}
+.TTheme {
+  position: absolute;
+  left: 1.5rem;
+  top: 1.5rem;
+  width: 1rem;
+  height: 1rem;
+  background-color: var(--w1ed);
+  border-radius: 50%;
+  transition: 0.5s;
+}
+.TTheme:hover {
+  transform: scale(1.2);
+  background-color: var(--w1pb);
+}
+.Display {
+  min-height: 6rem;
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  color: var(--w1ed);
+  text-align: right;
+  flex: 1 1 0%;
+  border-radius: 1rem;
+  transition: 0.5s;
+}
+.Display .Op {
+  color: var(--w3);
+}
+#InputSimClac {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+#OutputSimClac {
+  font-size: 2rem;
+  font-weight: 700;
+  width: 100%;
+  max-width: 15rem;
+  overflow: auto;
+}
+.ButtonsSimClac {
+  padding: 1.5rem 1rem 0.5rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-gap: 0.75rem;
+}
+.ButtonsSimClac .key {
+  position: relative;
+  cursor: pointer;
+  display: block;
+  height: 3rem;
+  width: 3rem;
+  padding-top: 100%;
+  font-size: 1.25rem;
+  font-weight: 700;
+  border-radius: 50%;
+  background-color: var(--w6);
+  color: var(--w1ed);
+  box-shadow: 2px 2px 6px var(--w7);
+  user-select: none;
+  transition: 0.5s;
+}
+.ButtonsSimClac .key:hover {
+  box-shadow: 2px 2px 6px var(--w1);
+  color: var(--w1);
+}
+.ButtonsSimClac .key.Op:hover {
+  box-shadow: 2px 2px 6px var(--w3);
+  color: var(--w3);
+}
+.ButtonsSimClac .key.Act:hover {
+  box-shadow: 2px 2px 6px var(--w2);
+  color: var(--w2);
+}
+.ButtonsSimClac .key span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.SimCalcBody.dark {
+  background-color: var(--w7);
+  box-shadow: 0.5rem 0.5rem 1.2rem var(--w6);
+}
+.SimCalcBody.dark .TTheme {
+  background-color: var(--w6);
+}
+.SimCalcBody.dark .TTheme:hover {
+  background-color: var(--w1ed);
+}
+.SimCalcBody.dark .Display {
+  color: var(--w1pb);
+  border: 1px solid var(--w6);
+}
+.SimCalcBody.dark .Display .Op {
+  color: var(--w3pb);
+}
+.SimCalcBody.dark .ButtonsSimClac .key {
+  border-radius: 10%;
+  background-color: var(--w7);
+  color: var(--w6);
+}
+.SimCalcBody.dark .ButtonsSimClac .key:hover {
+  box-shadow: 2px 2px 6px var(--w1pb);
+  color: var(--w1pb);
+}
+.SimCalcBody.dark .ButtonsSimClac .key.Op:hover {
+  box-shadow: 2px 2px 6px var(--w3pb);
+  color: var(--w3pb);
+}
+.SimCalcBody.dark .ButtonsSimClac .key.Act:hover {
+  box-shadow: 2px 2px 6px var(--w2pb);
+  color: var(--w2pb);
+}
+/* Temperatur Calculator */
+#TempCalc.dark {
+  background-color: var(--w7);
+}
+#TempCalc.dark h1 {
+  color: var(--w7);
+  text-shadow: 0.5rem 0.5rem 1.2rem var(--w6);
+  -webkit-text-stroke-color: var(--w6);
+}
+.TempCalcBody {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 0.5rem 0.5rem;
+  margin: 0.5rem;
+  max-width: 30rem;
+  background-color: var(--w6);
+  border-radius: 1rem;
+  box-shadow: 2px 2px 6px var(--w7);
+}
+.TempCalcBody h4 {
+  flex: 1 1 7rem;
+}
+#TTTempCalc {
+  position: absolute;
+}
+.TempInput {
+  flex: 1 1 20rem;
+  margin: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  font-size: 1.1rem;
+  color: var(--w7);
+  border-radius: 1rem;
+  box-shadow: 2px 2px 6px var(--w7);
+}
+.TempCalcBody.dark {
+  background-color: var(--w7);
+  box-shadow: 2px 2px 6px var(--w6);
+}
+.TempCalcBody.dark .TTheme {
+  background-color: var(--w6);
+}
+.TempCalcBody.dark .TempInput {
+  background-color: var(--w7);
+  color: var(--w6);
+  box-shadow: 2px 2px 6px var(--w6);
+}
+.TempCalcBody.dark .TempInput:focus {
+  box-shadow: 2px 2px 6px var(--w2pb);
+}
+.TempCalcBody.dark h4 {
+  color: var(--w6);
+}
+/* CirCalc */
+.CirCalcBody {
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 0.5rem 0.5rem;
+  margin: 0.5rem;
+  max-width: 30rem;
+  background-color: var(--w6);
+  border-radius: 1rem;
+  box-shadow: 2px 2px 6px var(--w7);
+}
+#CCI1 {
+  margin: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+  box-shadow: 2px 2px 6px var(--w7);
+}
+#CCI2 {
+  margin: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+  box-shadow: 2px 2px 6px var(--w7);
+}
+.CirCalcInput h4 {
+  /* flex: 1 1 7rem; */
+  width: 7rem;
+  color: var(--w1ed);
+}
+.CirInput {
+  /* flex: 1 1 15rem; */
+  width: 15rem;
+  margin: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  font-size: 1.1rem;
+  color: var(--w1ed);
+  border-radius: 1rem;
+  box-shadow: 2px 2px 6px var(--w7);
+}
+.CirCalcInput select {
+  /* flex: 1 1 3rem; */
+  width: 3rem;
+  color: var(--w1ed);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+/* Media Queries */
+/* BIG Screen */
+@media (min-width: 1920px) or (min-height: 1080px) {
+  html {
+    font-size: 150%;
+  }
+}
+/* 1080p Screen */
+@media (max-width: 1920px) or (max-height: 1080px) {
+  html {
+    font-size: 125%;
+  }
+}
+/* 720p Screen */
+@media (max-width: 1280px) or (max-height: 720px) {
+  html {
+    font-size: 100%;
+  }
+}
+/* Small Laptop & Big Tablet */
+@media (max-width: 912px) or (max-height: 513px) {
+  html {
+    font-size: 87.5%;
+  }
+}
+/* Big Mobile & Tablet */
+@media (max-width: 768px) or (max-height: 432px) {
+  html {
+    font-size: 75%;
+  }
+  /* Homepage */
+  #NavSideMenu {
+    display: inline-block;
+  }
+  .NavBar .NavBar-Nav,
+  .NavMenuCalc {
+    position: absolute;
+    overflow: auto;
+    top: 100%;
+    right: -21rem;
+    background-color: var(--w6);
+    width: 20rem;
+    height: 100vh;
+    box-shadow: -0.25rem 0.25rem 0.5rem var(--w7);
+    transition: 0.5s;
+  }
+  .NavBar .NavBar-Nav.active,
+  .NavMenuCalc.active {
+    right: 0;
+  }
+  .NavBar .NavBar-Nav a {
+    color: var(--w7);
+    display: block;
+    margin: 1.3rem;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+  }
+  .NavMenuCalc.active a {
+    font-size: 1.25rem;
+  }
+  .NavBar .NavBar-Nav a::after {
+    transform-origin: 0 0;
+  }
+  .NavBar .NavBar-Nav a:hover::after {
+    transform: scaleX(0.1);
+  }
+  .NavBar .NavMenu.active {
+    transform: scaleY(0);
+  }
+  .About .Row {
+    flex-wrap: wrap;
+  }
+  .About .Row .Img img {
+    height: 24rem;
+  }
+  .About .Row .Content {
+    padding: 0;
+    margin-top: 1rem;
+  }
+  .About .Row .Content p {
+    font-size: 1.1rem;
+  }
+  .Contact .Row {
+    flex-wrap: wrap;
+  }
+  /* Calculator */
+  #Calculator {
+    padding: 0;
+  }
+}
+/* Mobile */
+@media (max-width: 464px) or (max-height: 360px) {
+  html {
+    font-size: 62.5%;
+  }
+}

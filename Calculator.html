@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <!-- Link Style -->
+    <link rel="stylesheet" href="Style.css" />
+  </head>
+  <body>
+    <!-- NavBar -->
+    <nav class="NavBar" id="NavBarCalc">
+      <a href="index.html" class="Logo">Logo</a>
+      <div class="NavBar-Nav" id="NavBar-NavCalc">
+        <a href="index.html#Home">Home</a>
+        <a href="index.html" id="MenuBar">Menu</a>
+      </div>
+      <div class="NavBar-Extra">
+        <a href="#" id="NavSideMenu"><i data-feather="menu"></i></a>
+      </div>
+      <div class="NavMenu"></div>
+      <div class="NavMenuCalc">
+        <a href="#SimCalc" class="Button">Simple Calculator</a>
+        <a href="#TempCalc" class="Button">Temperature Calculator</a>
+        <a href="#CirCalc" class="Button">Cylinder Calculator</a>
+      </div>
+    </nav>
+    <!-- /Navbar -->
+    <!-- Main -->
+    <section class="MainMenu" id="Calculator">
+      <section class="Calc" id="SimCalc">
+        <h1>Simple Calculator</h1>
+        <div class="SimCalcBody">
+          <div class="ToggleTheme">
+            <button class="TTheme" id="TTSimCalc"></button>
+          </div>
+          <div class="Display">
+            <div id="DisplaySimClac">
+              <div id="InputSimClac"></div>
+              <div id="OutputSimClac"></div>
+            </div>
+          </div>
+          <div class="ButtonsSimClac">
+            <div data-key="Clear" class="key Act"><span>C</span></div>
+            <div data-key="Brackets" class="key Op"><span>()</span></div>
+            <div data-key="Delete" class="key Act"><span>D</span></div>
+            <div data-key="/" class="key Op"><span>/</span></div>
+            <div data-key="7" class="key"><span>7</span></div>
+            <div data-key="8" class="key"><span>8</span></div>
+            <div data-key="9" class="key"><span>9</span></div>
+            <div data-key="*" class="key Op"><span>*</span></div>
+            <div data-key="4" class="key"><span>4</span></div>
+            <div data-key="5" class="key"><span>5</span></div>
+            <div data-key="6" class="key"><span>6</span></div>
+            <div data-key="-" class="key Op"><span>-</span></div>
+            <div data-key="1" class="key"><span>1</span></div>
+            <div data-key="2" class="key"><span>2</span></div>
+            <div data-key="3" class="key"><span>3</span></div>
+            <div data-key="+" class="key Op"><span>+</span></div>
+            <div data-key="%" class="key Op"><span>%</span></div>
+            <div data-key="0" class="key"><span>0</span></div>
+            <div data-key="." class="key Op"><span>.</span></div>
+            <div data-key="=" class="key Op"><span>=</span></div>
+          </div>
+        </div>
+      </section>
+      <section class="Calc" id="TempCalc">
+        <h1>Temperature Calculator</h1>
+        <div class="TempCalcBody">
+          <div class="ToggleTheme">
+            <button class="TTheme" id="TTTempCalc"></button>
+          </div>
+          <h4 class="TempText">Celsius</h4>
+          <input
+            type="number"
+            placeholder="Celsius"
+            class="TempInput"
+            id="Celsius"
+            name="Celsius"
+          />
+          <h4 class="TempText">Kelvin</h4>
+          <input
+            type="number"
+            placeholder="Kelvin"
+            class="TempInput"
+            id="Kelvin"
+            name="Kelvin"
+          />
+          <h4 class="TempText">Fahrenheit</h4>
+          <input
+            type="number"
+            placeholder="Fahrenheit"
+            class="TempInput"
+            id="Fahrenheit"
+            name="Fahrenheit"
+          />
+          <h4 class="TempText">Rankine</h4>
+          <input
+            type="number"
+            placeholder="Rankine"
+            class="TempInput"
+            id="Rankine"
+            name="Rankine"
+          />
+          <h4 class="TempText">Réaumur</h4>
+          <input
+            type="number"
+            placeholder="Réaumur"
+            class="TempInput"
+            id="Réaumur"
+            name="Réaumur"
+          />
+          <h4 class="TempText">Rømer</h4>
+          <input
+            type="number"
+            placeholder="Rømer"
+            class="TempInput"
+            id="Rømer"
+            name="Rømer"
+          />
+          <h4 class="TempText">Newton</h4>
+          <input
+            type="number"
+            placeholder="Newton"
+            class="TempInput"
+            id="Newton"
+            name="Newton"
+          />
+          <h4 class="TempText">Delisle</h4>
+          <input
+            type="number"
+            placeholder="Delisle"
+            class="TempInput"
+            id="Delisle"
+            name="Delisle"
+          />
+        </div>
+      </section>
+      <section class="Calc" id="CirCalc">
+        <h1>Circle Calculator</h1>
+        <div class="CirCalcBody">
+          <div class="ToggleTheme">
+            <button class="TTheme" id="TTCirCalc"></button>
+          </div>
+          <div class="CirCalcInput" id="CCI1">
+            <h4>Radius</h4>
+            <input
+              type="number"
+              placeholder="r"
+              class="CirInput"
+              id="Radius"
+              name="Radius"
+            />
+            <select name="RadiusSelect" id="RadiusSelect" required>
+              <option value="1">m</option>
+              <option value="0.1">dm</option>
+              <option value="0.01">cm</option>
+              <option value="0.001">mm</option>
+            </select>
+            <h4>Diameter</h4>
+            <input
+              type="number"
+              placeholder="d"
+              class="CirInput"
+              id="Diameter"
+              name="Diameter"
+            />
+            <select name="DiameterSelect" id="DiameterSelect" required>
+              <option value="1">m</option>
+              <option value="0.1">dm</option>
+              <option value="0.01">cm</option>
+              <option value="0.001">mm</option>
+            </select>
+            <h4>Circumference</h4>
+            <input
+              type="number"
+              placeholder="C"
+              class="CirInput"
+              id="Circumference"
+              name="Circumference"
+            />
+            <select
+              name="CircumferenceSelect"
+              id="CircumferenceSelect"
+              required
+            >
+              <option value="1">m</option>
+              <option value="0.1">dm</option>
+              <option value="0.01">cm</option>
+              <option value="0.001">mm</option>
+            </select>
+            <h4>Area</h4>
+            <input
+              type="number"
+              placeholder="A"
+              class="CirInput"
+              id="Area"
+              name="Area"
+            />
+            <select name="AreaSelect" id="AreaSelect" required>
+              <option value="1">m<sup>2</sup></option>
+              <option value="0.01">dm<sup>2</sup></option>
+              <option value="0.0001">cm<sup>2</sup></option>
+              <option value="0.000001">mm<sup>2</sup></option>
+            </select>
+          </div>
+          <div class="CirCalcInput" id="CCI2">
+            <h4>Height</h4>
+            <input
+              type="number"
+              placeholder="h"
+              class="CirInput"
+              id="Height"
+              name="Height"
+            />
+            <select name="HeightSelect" id="HeightSelect" required>
+              <option value="1">m</option>
+              <option value="0.1">dm</option>
+              <option value="0.01">cm</option>
+              <option value="0.001">mm</option>
+            </select>
+            <h4>Surface Area</h4>
+            <input
+              type="number"
+              placeholder="Surface A"
+              class="CirInput"
+              id="SurfaceArea"
+              name="SurfaceArea"
+            />
+            <select name="SurfaceAreaSelect" id="SurfaceAreaSelect" required>
+              <option value="1">m<sup>2</sup></option>
+              <option value="0.01">dm<sup>2</sup></option>
+              <option value="0.0001">cm<sup>2</sup></option>
+              <option value="0.000001">mm<sup>2</sup></option>
+            </select>
+            <h4>Volume</h4>
+            <input
+              type="number"
+              placeholder="V"
+              class="CirInput"
+              id="Volume"
+              name="Volume"
+            />
+            <select name="VolumeSelect" id="VolumeSelect" required>
+              <option value="1">m<sup>3</sup></option>
+              <option value="0.001">dm<sup>3</sup></option>
+              <option value="0.000001">cm<sup>3</sup></option>
+              <option value="0.000000001">mm<sup>3</sup></option>
+            </select>
+          </div>
+        </div>
+      </section>
+    </section>
+    <!-- /Main -->
+    <!-- Footer -->
+    <footer id="FooterCalc">
+      <div class="SNS">
+        <a href="#"><i data-feather="instagram" class="Icons"></i></a>
+        <a href="#"><i data-feather="facebook" class="Icons"></i></a>
+      </div>
+      <div class="Links">
+        <a href="index.html" class="Logo">Logo</a>
+        <a href="index.html#Home">Home</a>
+        <a href="index.html#History">History</a>
+        <a href="index.html#Menu">Menu</a>
+        <a href="index.html#Contact">Contact Us</a>
+      </div>
+      <div class="Credit">
+        <p>Created by <a href="#">Ghafururrohim Adi Putra</a> | &copy;2025</p>
+      </div>
+    </footer>
+    <!-- /Footer -->
+    <!-- Icons -->
+    <script>
+      feather.replace();
+    </script>
+    <!-- javascrip -->
+    <script src="Script.js"></script>
+    <script src="ClacScrip.js"></script>
+  </body>
+</html>
