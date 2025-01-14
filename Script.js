@@ -57,7 +57,7 @@ document.addEventListener("click", function (e) {
 // Main Slide
 let AutoSlide = setTimeout(() => {
   SBNext.click();
-}, 3000);
+}, 5000);
 SBNext.addEventListener("click", () => {
   NASlide("Next");
 });
